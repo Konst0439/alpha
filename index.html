@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">   
+</head>
+<body>  
+ <canvas width="900" height="900" id="canvas"></canvas>
+ 
+   
+ <script> 
+let canvas = document.getElementById('canvas');  
+// Указываем элемент для 2D рисования
+let ctx = canvas.getContext('2d');
+     
+ctx.fillStyle = "black";
+    ctx.strokeStyle = "black";
+    ctx.font = "italic bold 10pt Arial"; 
+
+    ctx.fillStyle = "black"; // Задаём чёрный цвет для линий 
+    
+ctx.lineWidth = 2.0; // Ширина линии
+ctx.beginPath(); // Запускает путь
+ctx.moveTo(50, 50); 
+ctx.lineTo(50, 55);      
+
+ctx.lineTo(50, 350); 
+ctx.lineTo(520,350);
+ctx.moveTo(95, 30); //Указываем начальный путь для другой оси Y
+ctx.lineTo(95, 320); 
+ctx.lineTo(520, 320); 
+     ctx.stroke();
+     ctx.beginPath(); // Запускает путь
+
+     //Цикл для отображения значений по Y первый график   
+for(let i = 0; i<10;i++){
+ ctx.fillText(parseFloat((0.40-(i*0.04)).toFixed(5)),15, i*27+63); 
+  } 
+     
+     for(let i = 0; i<10; i++){       
+ ctx.lineTo((9-i)*1+"",15,i*30);
+        ctx.beginPath();
+  ctx.moveTo(45,i*27+85); 
+    ctx.lineTo(55,i*27+85);     
+    ctx.stroke(); 
+} 
+     //цикл для отображения значений по Y второй график
+     for(let i = 0; i<11;i++){
+ ctx.fillText(parseFloat((0.44-(i*0.04)).toFixed(5)),63, i*27+35); 
+  } 
+     
+     for(let i = 0; i<10; i++){       
+ ctx.lineTo((9-i)*1+"",63,i*30+1);
+        ctx.beginPath();
+  ctx.moveTo(90,i*27+55); 
+    ctx.lineTo(100,i*27+55);     
+    ctx.stroke(); 
+}
+     ctx.beginPath(); 
+ ctx.moveTo(50, 50); 
+ctx.lineTo(45, 60);
+ctx.lineTo(50, 50);
+ ctx.lineTo(55,60);  
+ctx.stroke();    
+ctx.beginPath(); 
+ ctx.moveTo(520, 350); 
+ctx.lineTo(510, 345);
+ctx.lineTo(520, 350);
+     ctx.lineTo(510, 355); 
+ctx.stroke(); 
+     ctx.beginPath(); 
+ ctx.moveTo(95, 30); 
+ctx.lineTo(90, 40);
+ctx.lineTo(95, 30);
+ ctx.lineTo(100,40);  
+ctx.stroke(); 
+     //ctx.beginPath(); 
+ ctx.moveTo(520, 320); 
+ctx.lineTo(510, 315);
+ctx.lineTo(520, 320);
+     ctx.lineTo(510,325); 
+ctx.stroke(); 
+      //Цикл для отображения значений по Х первый грайфик 
+    
+// Массив с меткам значений
+let labels = ["0.0025", "0.003", "0.0035", "0.004", "0.0045","0.005", "0.0055","0.006"]; 
+ 
+// Выводим метки
+for(let i=0; i<8; i++) { 
+    ctx.fillText(labels[i], 95+ i*50, 370); 
+    //ctx.beginPath(); 
+}
+  // Выводим черточки   
+     for(let i = 0; i<8; i++){       
+ ctx.moveTo(115+i*50,355);  
+ ctx.lineTo(115+i*50,345);      
+ 
+    ctx.stroke(); 
+} 
+      //Цикл для отображения значений по Х второй грайфик 
+   //ctx.beginPath();   
+// Массив с меткам значений
+let label = ["730", "735", "740", "745", "750","755", "760","765","770","775","780"]; 
+ 
+// Выводим метки
+for(let i=0; i<11; i++) { 
+    ctx.fillText(label[i], 105+ i*35, 335); 
+    //ctx.beginPath(); 
+}
+  // Выводим черточки   
+     for(let i = 0; i<11; i++){       
+ ctx.moveTo(115+i*35,325);  
+ ctx.lineTo(115+i*35,315);      
+ 
+    ctx.stroke(); 
+} 
+ 
+ctx.font = "italic bold 12pt Arial";
+    ctx.fillText("mm Hg",495,335);
+     ctx.fillText("V m/c",20, 25);
+     ctx.fillText("alfa/cm2*hour",495,370);
+    ctx.stroke(); 
+
+
+</script> 
+</body>
+
+</html>
